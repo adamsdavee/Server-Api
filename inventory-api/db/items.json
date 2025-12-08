@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Notebook",
+    "price": 1200,
+    "size": "s"
+  },
+  {
+    "id": 2,
+    "name": "Backpack",
+    "price": 8500,
+    "size": "m"
+  },
+  {
+    "id": 3,
+    "name": "Suitcase",
+    "price": 25000,
+    "size": "l"
+  },
+  {
+    "id": 4,
+    "name": "Water Bottle",
+    "price": 3000,
+    "size": "s"
+  },
+  {
+    "id": 5,
+    "name": "Laptop Bag",
+    "price": 15000,
+    "size": "m"
+  }
+]
