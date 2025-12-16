@@ -4,7 +4,13 @@ const path = require("path")
 
 const dbPath = path.join(__dirname, "db", "items.json")
 
-const { createItem, getAllItems } = require("./request")
+const {
+   createItem,
+   getAllItems,
+   getEachItem,
+   updateItem,
+   deleteItem,
+} = require("./request")
 
 const PORT = 8000
 const HOSTNAME = "localhost"
@@ -12,18 +18,23 @@ const HOSTNAME = "localhost"
 function requestHandler(req, res) {
    res.setHeader("Content-Type", "text/html")
 
-   console.log(req.url)
-
    if (req.method == "POST" && req.url == "/items") {
       createItem(req, res)
    } else if (req.method == "GET" && req.url == "/items") {
       getAllItems(req, res)
-   } else if (req.method == "GET" && req.url == "/items") {
-      getOneItems(req, res)
+   } else if (req.method == "GET" && req.url.startsWith("/items/")) {
+      getEachItem(req, res)
    } else if (req.method == "PUT" && req.url == "/items") {
       updateItem(req, res)
    } else if (req.method == "DELETE" && req.url == "/items") {
       deleteItem(req, res)
+   } else {
+      res.writeHead(400)
+      res.end(
+         JSON.stringify({
+            message: "Route not found",
+         })
+      )
    }
 }
 
